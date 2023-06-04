@@ -1,0 +1,70 @@
+[init]
+git init --bare # For simulate a "server" repository or only save information about some git repo
+git init # Init a repo
+
+[stage]
+git add <file(s)> # Add files to the stage
+
+[restore]
+git restore <file(s)> # Restore files when are not staged
+git restore --staged <files> # Restore files when are staged, put them outside stage
+
+[commit]
+git commit # Open terminal configurated to commit the staged files
+git commit -m <message> # Short way to do a commit with a message
+
+[diff]
+git diff # Compare actual changes with last commit
+git diff <startHash>..<endHash> # Compare changes between the start and end commit provided
+
+[checkout]
+git checkout -- <files> #  Resotre files when are not staged
+git checkout (<branchName> | <commitHash>) # Change where HEAD points, i.e. switch branches, go to speficic commit, etc
+git checkout -b <branchName> # Create a branch and switch to it
+
+[log]
+git log # Show commits of current branch
+git log --oneline # Show commits in short way
+git log --graph # Show commits in graphical way
+git log -p # Show commits showing the file changes 
+
+[revert]
+git revert <commitHash> # Revert the changes of a commit creating a new commit
+
+[reset]
+# Move in the timeline, where: 
+# - soft keeps the changes in the stage
+# - mixed does not keep the changes in stage 
+# - hard does not keep anything
+git reset [--soft | --mixed | --hard] <commitHash>
+
+[remote]
+git remote # Show the names of remote repos that exist in this repo
+git remote -v # Show the name with url (direction) of remote repos
+git remote add <name> <url> # Add a remote repo to point to
+git remote rename <oldName> <newName> # Rename a remote repo
+
+[branch]
+git branch # Show all branches of current repo
+git branch -d <name> # Delete a branch
+
+[merge/rebase]
+git merge <branchName> # Merge all commits of the specified branch to actual branch creating a commit of merge. Specified branch does not change
+git rebase <branchName> # Merge all commits of the specified branch to actual branch taking the last commit of the current branch as the last.
+
+[push]
+git push <branchName> (<originName> | <tagName>) # Push all changes of the branch specified to the "server"
+
+[pull]
+git pull <branchName> <originName> # Get the last changes of the branch specified from the origin repo
+
+[stash]
+git stash # Move all changes to temp stash to save them
+git stash list # Show all temp changes
+git stash pop # Get the last changes in stash
+
+[tag]
+git tag [-l] # List all tags
+git tag -a <name> # Adding a tag with interactive editor
+git tag -a <name> -m  <message> # Adding a tag with specified message 
+git tag -d <name> #  Delete a tag
