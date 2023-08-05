@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Root tag -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!-- Basic settings -->
+    <modelVersion>Current model POM support version - Is required</modelVersion>
+    <groupId>Unique base name of the company or group that created the project</groupId>
+    <artifactId>Unique name of the project (from groupId)</artifactId>
+    <version>Version of the project</version>
+    <name>Full name of the project</name>
+    <url>URL project's homepage</url>
+    <description>An description of the project</description>
+
+    <!-- "Variables" for pom file -->
+    <properties>
+        <!-- Use in anywhere with ${my.property} in this case -->
+        <my.property>My value here</my.property>
+    </properties>
+
+    <!-- Repositories (apart from Maven Central repo) -->
+    <repositories>
+        <repository>
+            <id>Id for POM to looking for in this repo</id>
+            <url>Url of the remote repository</url>
+        </repository>
+        
+    </repositories>
+
+    <!--  Dependencies (from repositories) -->
+    <dependencies>
+        <dependency>
+            <groupId>The project group dependency</groupId>
+            <artifactId>The unique artifact from the group dependency</artifactId>
+            <version>Version of the dependency</version>
+        </dependency>
+    </dependencies>
+
+    <!-- Provides information about the default Maven "goal" -->
+    <build>
+        <defaultGoal>goal to do when build (install, validate, compile, etc)</defaultGoal>
+        <directory>Directory for the build files</directory>
+        <finalName>Name of build artifact goal</finalName>
+        <filters>
+            <filter>Some file to filter in the build</filter>
+        </filters>
+    </build>
+
+    <!-- Profiles (Set of configurations to use to build different envs) -->
+    <profiles>
+        <profile>
+            <id>production</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <!-- Config... -->
+                    </plugin>
+                    <plugin>
+                        <!-- Config... -->
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>development</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <!-- Config... -->
+                    </plugin>
+                    <plugin>
+                        <!-- Config... -->
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+</project>
+
